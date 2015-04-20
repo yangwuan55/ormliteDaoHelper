@@ -1,10 +1,6 @@
 package com.ymr.daofactory;
 
 import android.app.Application;
-import android.content.Context;
-
-import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
-import com.j256.ormlite.dao.Dao;
 
 /**
  * Created by ymr on 15/4/17.
@@ -12,7 +8,7 @@ import com.j256.ormlite.dao.Dao;
 public abstract class AbstractApp extends Application {
 
     private static AbstractApp sContext;
-    private OrmLiteSqliteOpenHelper mDaoHelper;
+    private DaoHelper mDaoHelper;
 
     @Override
     public void onCreate() {
@@ -27,7 +23,7 @@ public abstract class AbstractApp extends Application {
         return sContext;
     }
 
-    public OrmLiteSqliteOpenHelper getDaoHelper(){
+    public DaoHelper getDaoHelper(){
         return mDaoHelper;
     }
 }

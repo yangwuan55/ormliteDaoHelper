@@ -1,7 +1,6 @@
 package com.ymr.daofactory;
 
 
-import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
@@ -11,12 +10,16 @@ import java.sql.SQLException;
  */
 public abstract class OrmModelFactory<T> {
 
-    protected static OrmLiteSqliteOpenHelper mOrmLiteSqliteOpenHelper;
+    protected static DaoHelper mOrmLiteSqliteOpenHelper;
     protected Dao<T, Integer> mDao;
 
-    protected OrmModelFactory(OrmLiteSqliteOpenHelper helper, Class<T> ormEntity) throws SQLException {
+    protected OrmModelFactory(DaoHelper helper, Class<T> ormEntity) throws SQLException {
         mOrmLiteSqliteOpenHelper = helper;
-        this.mDao = mOrmLiteSqliteOpenHelper.getDao(ormEntity);
+        if (helper.getDataSource().getDataClasses().contains(ormEntity)) {
+            this.mDao = mOrmLiteSqliteOpenHelper.getDao(ormEntity);
+        } else {
+            throw new RuntimeException("the Class:" + ormEntity.getName() + " isnt contained at DataSource");
+        }
     }
 
     public Dao<T, Integer> getDao() {
