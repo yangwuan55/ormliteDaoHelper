@@ -6,10 +6,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.j256.ormlite.dao.Dao;
 import com.ymr.daofactory.R;
 import com.ymr.daofactory.sample.db.Test;
-import com.ymr.daofactory.sample.db.TestDaoHelper;
+import com.ymr.daofactory.sample.db.Test2;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -24,18 +23,32 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         try {
-            Dao<Test, Integer> dao = TestDaoHelper.getInstance().getDao();
             Test data = new Test();
             data.setUsername("jjjjjjj");
             data.setPassword("2222222");
-            dao.create(data);
+            data.create();
 
-            List<Test> tests = dao.queryForAll();
+            List<Test> tests = data.getDao().queryForAll();
             for (Test test : tests) {
                 Log.i(TAG,"test = " + test);
             }
         } catch (SQLException e) {
             Log.e(TAG,"E:" + e.toString());
+        }
+
+        try {
+            Test2 test2 = new Test2();
+            test2.setAaa("2222");
+            test2.setBbb("4444");
+            test2.create();
+
+            List<Test2> test2s = test2.getDao().queryForAll();
+            for (Test2 test21 : test2s) {
+                Log.i(TAG,"test21 = " + test21);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
     }

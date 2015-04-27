@@ -41,6 +41,7 @@ public abstract class DaoHelper extends OrmLiteSqliteOpenHelper {
 
     private void initTables(ConnectionSource connectionSource) {
         if (mDataSource != null && mDataSource.getDataClasses() != null && mDataSource.getDataClasses().size() > 0) {
+            checkClasses();
             for (Class aClass : mDataSource.getDataClasses()) {
                 try {
                     TableUtils.createTable(connectionSource, aClass);
@@ -50,6 +51,14 @@ public abstract class DaoHelper extends OrmLiteSqliteOpenHelper {
             }
         } else {
             throw new RuntimeException("must get the DataSoure at child class");
+        }
+    }
+
+    private void checkClasses() {
+        for (Class aClass : mDataSource.getDataClasses()) {
+            if (!AbsBean.class.isAssignableFrom(aClass)) {
+                throw new RuntimeException(aClass.getName()+" is not AbsBean's child class.");
+            }
         }
     }
 
