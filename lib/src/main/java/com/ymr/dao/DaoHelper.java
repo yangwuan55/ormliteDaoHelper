@@ -1,18 +1,14 @@
-package com.ymr.daofactory;
+package com.ymr.dao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
-import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
-import java.lang.reflect.Type;
 import java.sql.SQLException;
-import java.util.IllegalFormatCodePointException;
-import java.util.Objects;
 
 /**
  * Created by ymr on 15/4/17.
@@ -26,7 +22,6 @@ public abstract class DaoHelper extends OrmLiteSqliteOpenHelper {
         mDataSource = getDataSource();
     }
 
-    //工厂方法模式：）
     protected abstract DataSource getDataSource();
 
     @Override

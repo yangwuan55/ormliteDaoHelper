@@ -1,4 +1,4 @@
-package com.ymr.daofactory;
+package com.ymr.dao;
 
 import java.util.List;
 

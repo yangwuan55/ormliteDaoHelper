@@ -1,10 +1,9 @@
-package com.ymr.daofactory.sample.db;
+package com.ymr.dao.sample.db;
 
 import android.content.Context;
 
-import com.ymr.daofactory.AbsBean;
-import com.ymr.daofactory.DaoHelper;
-import com.ymr.daofactory.DataSource;
+import com.ymr.dao.DaoHelper;
+import com.ymr.dao.DataSource;
 
 import java.util.ArrayList;
 import java.util.List;

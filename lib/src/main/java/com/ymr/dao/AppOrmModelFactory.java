@@ -1,19 +1,15 @@
-package com.ymr.daofactory;
+package com.ymr.dao;
 
 import com.j256.ormlite.dao.Dao;
 
 import java.lang.reflect.ParameterizedType;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by ymr on 15/4/27.
  */
 public abstract class AppOrmModelFactory<T>{
-
-
     protected static DaoHelper sOrmLiteSqliteOpenHelper;
     protected static HashMap<Class,Dao> sDaos = new HashMap<>();
     private final Class<T> mEntityClass;

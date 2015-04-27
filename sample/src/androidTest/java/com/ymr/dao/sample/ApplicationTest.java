@@ -1,4 +1,4 @@
-package com.ymr.daofactory.sample;
+package com.ymr.dao.sample;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

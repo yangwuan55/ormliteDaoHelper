@@ -1,6 +1,4 @@
-package com.ymr.daofactory;
-
-import com.j256.ormlite.dao.Dao;
+package com.ymr.dao;
 
 import java.sql.SQLException;
 

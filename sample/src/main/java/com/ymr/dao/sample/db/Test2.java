@@ -1,10 +1,9 @@
-package com.ymr.daofactory.sample.db;
+package com.ymr.dao.sample.db;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
-import com.ymr.daofactory.AbsBean;
-import com.ymr.daofactory.AbstractApp;
-import com.ymr.daofactory.sample.App;
+import com.ymr.dao.AbsBean;
+import com.ymr.dao.sample.App;
 
 import java.sql.SQLException;
 
