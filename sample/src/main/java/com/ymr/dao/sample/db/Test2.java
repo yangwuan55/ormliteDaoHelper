@@ -11,7 +11,7 @@ import java.sql.SQLException;
  * Created by ymr on 15/4/17.
  */
 @DatabaseTable
-public class Test2 extends AbsBean<Test2>{
+public class Test2 extends AbsBean<Test2,Integer>{
 
     @DatabaseField(generatedId = true)
     private int id;

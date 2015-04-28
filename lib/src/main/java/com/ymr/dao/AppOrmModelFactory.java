@@ -9,7 +9,7 @@ import java.util.HashMap;
 /**
  * Created by ymr on 15/4/27.
  */
-public abstract class AppOrmModelFactory<T>{
+public abstract class AppOrmModelFactory<T,ID>{
     private static DaoHelper sOrmLiteSqliteOpenHelper;
     private static HashMap<Class,Dao> sDaos = new HashMap<>();
     private final Class<T> mEntityClass;
@@ -24,8 +24,8 @@ public abstract class AppOrmModelFactory<T>{
         }
     }
 
-    public Dao<T, Integer> getDao() throws SQLException {
-        Dao<T, Integer> dao = sDaos.get(mEntityClass);
+    public Dao<T, ID> getDao() throws SQLException {
+        Dao<T, ID> dao = sDaos.get(mEntityClass);
         if (dao == null) {
             dao = sOrmLiteSqliteOpenHelper.getDao(mEntityClass);
             sDaos.put(mEntityClass,dao);

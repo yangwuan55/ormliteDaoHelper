@@ -5,7 +5,7 @@ import java.sql.SQLException;
 /**
  * Created by ymr on 15/4/27.
  */
-public abstract class AbsBean<T extends AbsBean> extends AppOrmModelFactory<T> {
+public abstract class AbsBean<T extends AbsBean,ID> extends AppOrmModelFactory<T,ID> {
 
     protected AbsBean() throws SQLException {
         super(AbstractApp.getContext());
