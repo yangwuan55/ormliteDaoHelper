@@ -33,4 +33,12 @@ public abstract class AppOrmModelFactory<T,ID>{
         return dao;
     }
 
+    static <T,ID> Dao<T,ID> getDaoByClass(Class<T> c) throws SQLException {
+        Dao<T, ID> dao = sDaos.get(c);
+        if (dao == null) {
+            dao = sOrmLiteSqliteOpenHelper.getDao(c);
+            sDaos.put(c,dao);
+        }
+        return dao;
+    }
 }

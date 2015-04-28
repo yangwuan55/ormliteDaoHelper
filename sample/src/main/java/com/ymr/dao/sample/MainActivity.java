@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.ymr.dao.Utils;
 import com.ymr.dao.sample.db.Test;
 import com.ymr.dao.sample.db.Test2;
 
@@ -25,7 +26,7 @@ public class MainActivity extends Activity {
             data.setPassword("2222222");
             data.create();
 
-            List<Test> tests = data.getDao().queryForAll();
+            List<Test> tests = Utils.getDaoByClass(Test.class).queryForAll();
             for (Test test : tests) {
                 Log.i(TAG,"test = " + test);
             }
