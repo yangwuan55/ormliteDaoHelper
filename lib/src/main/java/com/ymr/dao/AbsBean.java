@@ -7,8 +7,8 @@ import java.sql.SQLException;
  */
 public abstract class AbsBean<T extends AbsBean> extends AppOrmModelFactory<T> {
 
-    protected AbsBean(AbstractApp app) throws SQLException {
-        super(app);
+    protected AbsBean() throws SQLException {
+        super(AbstractApp.getContext());
     }
 
     public void create() throws SQLException {

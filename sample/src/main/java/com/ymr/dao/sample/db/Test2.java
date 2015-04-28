@@ -21,7 +21,6 @@ public class Test2 extends AbsBean<Test2>{
     private String bbb;
 
     public Test2() throws SQLException {
-        super(App.getContext());
     }
 
     public int getId() {

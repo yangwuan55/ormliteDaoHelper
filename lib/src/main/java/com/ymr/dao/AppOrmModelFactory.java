@@ -10,12 +10,14 @@ import java.util.HashMap;
  * Created by ymr on 15/4/27.
  */
 public abstract class AppOrmModelFactory<T>{
-    protected static DaoHelper sOrmLiteSqliteOpenHelper;
-    protected static HashMap<Class,Dao> sDaos = new HashMap<>();
+    private static DaoHelper sOrmLiteSqliteOpenHelper;
+    private static HashMap<Class,Dao> sDaos = new HashMap<>();
     private final Class<T> mEntityClass;
 
     protected AppOrmModelFactory(AbstractApp app) throws SQLException {
-        sOrmLiteSqliteOpenHelper = app.getDaoHelper();
+        if (sOrmLiteSqliteOpenHelper == null) {
+            sOrmLiteSqliteOpenHelper = app.getDaoHelper();
+        }
         mEntityClass =(Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         if (mEntityClass == null) {
             throw new RuntimeException("There hasnt a T.");

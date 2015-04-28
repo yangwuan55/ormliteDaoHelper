@@ -20,7 +20,6 @@ public class Test extends AbsBean<Test>{
     private String password;
 
     public Test() throws SQLException {
-        super(App.getContext());
     }
 
     public int getId() {
