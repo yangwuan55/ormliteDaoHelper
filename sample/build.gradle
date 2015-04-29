@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+version = "1.0.0"
 android {
     compileSdkVersion 21
     buildToolsVersion "22.0.1"
@@ -9,7 +9,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
-        versionName "1.0"
+        versionName version
     }
     buildTypes {
         release {
@@ -20,7 +20,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':lib')
+    /*compile fileTree(dir: 'libs', include: ['*.jar'])
+        compile project(':lib')*/
+    compile 'com.ymr.dao:lib:1.0.0'
     compile 'com.android.support:appcompat-v7:22.0.0'
 }
