@@ -16,8 +16,8 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        maven {
+        /*maven {
             url "https://dl.bintray.com/yangwuan55/maven"
-        }
+        }*/
     }
 }
