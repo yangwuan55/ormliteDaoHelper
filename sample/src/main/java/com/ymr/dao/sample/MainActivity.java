@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.ymr.dao.Utils;
-import com.ymr.dao.sample.db.Test;
-import com.ymr.dao.sample.db.Test2;
+import com.ymr.dao.sample.db2.Test;
 
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -20,7 +23,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        try {
+        initDbFile();
+        /*try {
             Test data = new Test();
             data.setUsername("jjjjjjj");
             data.setPassword("2222222");
@@ -47,7 +51,25 @@ public class MainActivity extends Activity {
 
         } catch (SQLException e) {
             Log.e(TAG,"E:" + e.toString());
+        }*/
+
+        List<Test> tests = null;
+        try {
+            tests = Utils.getDaoByClass(Test.class).queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        for (Test test : tests) {
+            Log.i(TAG,"test = " + test);
         }
 
+    }
+
+    private void initDbFile() {
+        try {
+            FileUtils.copyInputStreamToFile(getAssets().open("my_db.db"),new File(getFilesDir()+"/"+"my_db.db"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

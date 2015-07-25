@@ -15,12 +15,16 @@ public abstract class AppOrmModelFactory<T,ID>{
     private final Class<T> mEntityClass;
 
     protected AppOrmModelFactory(AbstractApp app) throws SQLException {
-        if (sOrmLiteSqliteOpenHelper == null) {
-            sOrmLiteSqliteOpenHelper = app.getDaoHelper();
-        }
+        initHelper(app);
         mEntityClass =(Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         if (mEntityClass == null) {
             throw new RuntimeException("There hasnt a T.");
+        }
+    }
+
+    private static void initHelper(AbstractApp app) {
+        if (sOrmLiteSqliteOpenHelper == null) {
+            sOrmLiteSqliteOpenHelper = app.getDaoHelper();
         }
     }
 
@@ -34,6 +38,7 @@ public abstract class AppOrmModelFactory<T,ID>{
     }
 
     static <T,ID> Dao<T,ID> getDaoByClass(Class<T> c) throws SQLException {
+        initHelper(AbstractApp.getContext());
         Dao<T, ID> dao = sDaos.get(c);
         if (dao == null) {
             dao = sOrmLiteSqliteOpenHelper.getDao(c);

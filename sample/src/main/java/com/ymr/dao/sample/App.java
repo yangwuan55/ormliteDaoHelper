@@ -2,7 +2,7 @@ package com.ymr.dao.sample;
 
 import com.ymr.dao.AbstractApp;
 import com.ymr.dao.DaoHelper;
-import com.ymr.dao.sample.db.MyDaoHelper;
+import com.ymr.dao.sample.db2.MyDaoHelper;
 
 /**
  * Created by ymr on 15/4/17.
