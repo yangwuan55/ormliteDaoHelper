@@ -31,7 +31,7 @@ public class MyDaoHelper extends CustomDbDaoHelper {
 
     @Override
     protected String getDatabasePath() {
-        return App.getContext().getFilesDir()+"/"+"my_db.db";
+        return App.getApp().getFilesDir()+"/"+"my_db.db";
     }
 
     @Override

@@ -8,7 +8,8 @@ import java.sql.SQLException;
  * Created by ymr on 15/4/28.
  */
 public class Utils {
-    public static <T,ID> Dao<T,ID> getDaoByClass(Class<T> c) throws SQLException {
-        return AppOrmModelFactory.getDaoByClass(c);
+
+    public static <T,ID> Dao<T,ID> getDaoByClass(Class<T> c,DaoHelper daoHelper) throws SQLException {
+        return AppOrmModelFactory.getDaoByClass(c,daoHelper);
     }
 }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.ymr.dao.Utils;
+import com.ymr.dao.sample.db2.MyDaoHelper;
 import com.ymr.dao.sample.db2.Test;
 
 import org.apache.commons.io.FileUtils;
@@ -55,7 +56,7 @@ public class MainActivity extends Activity {
 
         List<Test> tests = null;
         try {
-            tests = Utils.getDaoByClass(Test.class).queryForAll();
+            tests = Utils.getDaoByClass(Test.class, MyDaoHelper.getInstance(this)).queryForAll();
         } catch (SQLException e) {
             e.printStackTrace();
         }
