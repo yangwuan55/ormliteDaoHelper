@@ -19,7 +19,11 @@ public class Test extends AbsBean<Test,Integer>{
     @DatabaseField
     private String password;
 
+    @DatabaseField
+    private String hahah = "1";
+
     public Test() throws SQLException {
+        super(MyDaoHelper.getInstance(App.getApp()));
     }
 
     public int getId() {
@@ -52,6 +56,15 @@ public class Test extends AbsBean<Test,Integer>{
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", hahah='" + hahah + '\'' +
                 '}';
+    }
+
+    public String getHahah() {
+        return hahah;
+    }
+
+    public void setHahah(String hahah) {
+        this.hahah = hahah;
     }
 }

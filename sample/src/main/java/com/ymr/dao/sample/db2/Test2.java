@@ -3,6 +3,7 @@ package com.ymr.dao.sample.db2;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import com.ymr.dao.AbsBean;
+import com.ymr.dao.sample.App;
 
 import java.sql.SQLException;
 
@@ -20,6 +21,7 @@ public class Test2 extends AbsBean<Test2,Integer>{
     private String bbb;
 
     public Test2() throws SQLException {
+        super(MyDaoHelper.getInstance(App.getApp()));
     }
 
     public int getId() {

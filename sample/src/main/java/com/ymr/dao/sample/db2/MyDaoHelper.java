@@ -14,7 +14,7 @@ import com.ymr.dao.sample.App;
 public class MyDaoHelper extends CustomDbDaoHelper {
 
     public static final String DATE_BASE_NAME = "my_db.db";
-    public static final int DATEBSE_VERSION = 5;
+    public static final int DATEBSE_VERSION = 6;
 
     private static DaoHelper sInstance;
 

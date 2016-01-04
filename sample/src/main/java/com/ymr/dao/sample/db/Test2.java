@@ -21,6 +21,7 @@ public class Test2 extends AbsBean<Test2,Integer>{
     private String bbb;
 
     public Test2() throws SQLException {
+        super(MyDaoHelper.getInstance(App.getApp()));
     }
 
     public int getId() {

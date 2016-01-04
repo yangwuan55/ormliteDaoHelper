@@ -5,8 +5,9 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.ymr.dao.Utils;
-import com.ymr.dao.sample.db2.MyDaoHelper;
-import com.ymr.dao.sample.db2.Test;
+import com.ymr.dao.sample.db.MyDaoHelper;
+import com.ymr.dao.sample.db.Test;
+import com.ymr.dao.sample.db.Test2;
 
 import org.apache.commons.io.FileUtils;
 
@@ -24,14 +25,14 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initDbFile();
-        /*try {
+        //initDbFile();
+        try {
             Test data = new Test();
             data.setUsername("jjjjjjj");
             data.setPassword("2222222");
             data.create();
 
-            List<Test> tests = Utils.getDaoByClass(Test.class).queryForAll();
+            List<Test> tests = MyDaoHelper.getInstance(this).getDao(Test.class).queryForEq("hahah","1");
             for (Test test : tests) {
                 Log.i(TAG,"test = " + test);
             }
@@ -52,9 +53,9 @@ public class MainActivity extends Activity {
 
         } catch (SQLException e) {
             Log.e(TAG,"E:" + e.toString());
-        }*/
+        }
 
-        List<Test> tests = null;
+        /*List<Test> tests = null;
         try {
             tests = Utils.getDaoByClass(Test.class, MyDaoHelper.getInstance(this)).queryForAll();
         } catch (SQLException e) {
@@ -62,7 +63,7 @@ public class MainActivity extends Activity {
         }
         for (Test test : tests) {
             Log.i(TAG,"test = " + test);
-        }
+        }*/
 
     }
 

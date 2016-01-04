@@ -2,6 +2,7 @@ package com.ymr.dao.sample.db;
 
 import android.content.Context;
 
+import com.ymr.dao.AbsBean;
 import com.ymr.dao.DaoHelper;
 import com.ymr.dao.DataSource;
 
@@ -14,7 +15,7 @@ import java.util.List;
 public class MyDaoHelper extends DaoHelper {
 
     public static final String DATE_BASE_NAME = "my_db";
-    public static final int DATEBSE_VERSION = 5;
+    public static final int DATEBSE_VERSION = 10;
 
     private static DaoHelper sInstance;
 
@@ -33,8 +34,8 @@ public class MyDaoHelper extends DaoHelper {
     protected DataSource getDataSource() {
         return new DataSource() {
             @Override
-            public List<Class> getDataClasses() {
-                List<Class> classes = new ArrayList<>();
+            public List<Class<? extends AbsBean>> getDataClasses() {
+                List<Class<? extends AbsBean>> classes = new ArrayList<>();
                 classes.add(Test.class);
                 classes.add(Test2.class);
                 return classes;
