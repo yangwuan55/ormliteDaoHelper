@@ -34,7 +34,7 @@ public abstract class DaoHelper extends OrmLiteSqliteOpenHelper {
         initTables(connectionSource);
     }
 
-    private void initTables(ConnectionSource connectionSource) {
+    protected void initTables(ConnectionSource connectionSource) {
         if (mDataSource != null && mDataSource.getDataClasses() != null && mDataSource.getDataClasses().size() > 0) {
             checkClasses();
             for (Class aClass : mDataSource.getDataClasses()) {

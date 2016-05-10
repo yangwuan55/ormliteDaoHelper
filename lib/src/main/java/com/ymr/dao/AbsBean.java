@@ -7,7 +7,7 @@ import java.sql.SQLException;
  */
 public abstract class AbsBean<T extends AbsBean,ID> extends AppOrmModelFactory<T,ID> {
 
-    protected AbsBean(DaoHelper daoHelper) throws SQLException {
+    protected AbsBean(DaoHelper daoHelper) {
         super(daoHelper);
     }
 

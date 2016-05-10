@@ -14,7 +14,7 @@ public abstract class AppOrmModelFactory<T,ID>{
     private static HashMap<Class,Dao> sDaos = new HashMap<>();
     private final Class<T> mEntityClass;
 
-    protected AppOrmModelFactory(DaoHelper daoHelper) throws SQLException {
+    protected AppOrmModelFactory(DaoHelper daoHelper) {
         mEntityClass =(Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         sOrmLiteSqliteOpenHelper = daoHelper;
         if (mEntityClass == null) {
